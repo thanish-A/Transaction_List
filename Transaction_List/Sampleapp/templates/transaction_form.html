@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Transaction Form</title>
+</head>
+<body>
+
+    <h1>
+        {% if form.instance.pk %}
+            Edit
+        {% else %}
+            Add
+        {% endif %}
+        Transaction
+    </h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Save</button>
+    </form>
+
+    <div class="btn">
+        <a href="{% url 'transaction_list' %}">Back to List</a>
+    </div>
+
+</body>
+</html>
